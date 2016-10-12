@@ -5,7 +5,23 @@
 <title>Welcome</title>
 </head>
 <body>
-{{name}}, hello world!<br/>
-he is {{userID}} years old.
+
+{{!
+	{ {name}}, hello world!<br/>
+	he is { {userID}} years old.
+}} 
+  
+{{!
+	Hello { {name}}
+	You have just won { {value}} dollars!
+	{ {#in_ca}}
+	Well, { {taxed_value}} dollars, after taxes.
+	{ {/in_ca}}
+}}
+
+{{#repo}}
+  <b>{{name}}</b>
+{{/repo}}
+
 </body>
 </html>
