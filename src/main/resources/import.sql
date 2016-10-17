@@ -1,0 +1,1 @@
+INSERT INTO USER (USERID, PASSWORD, NAME, EMAIL) VALUES ('test1','pass','test1','test1@test.com');
