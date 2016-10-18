@@ -13,13 +13,16 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(nullable=false, length=20)
+	@Column(nullable=false, length=20, unique = true)
 	public String userID;
 	
 	public String password;
 	public String name;
 	public String email;
 
+	public Long getId(){
+		return id;
+	}
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
@@ -50,6 +53,7 @@ public class User {
 		this.name = newUser.name;
 		this.email = newUser.email;	
 	}
+
 	
 
 }
