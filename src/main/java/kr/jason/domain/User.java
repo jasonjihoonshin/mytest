@@ -20,21 +20,39 @@ public class User {
 	public String name;
 	public String email;
 
-	public Long getId(){
-		return id;
+	//public Long getId(){
+	//	return id;
+	//}
+	
+	public boolean matchId(Long newId){
+		if(newId == null){
+			return false;
+		}
+		return newId.equals(id);
 	}
+	
 	public void setUserID(String userID) {
 		this.userID = userID;
+	}
+	
+	public String getUserID(){
+		return userID;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	public String getPassword(){
-		return this.password;
-	}
+	//public String getPassword(){
+	//	return this.password;
+	//}
 	
+	public boolean matchPassword(String newPassword){
+		if(newPassword == null){
+			return false;
+		}
+		return newPassword.equals(password);
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
