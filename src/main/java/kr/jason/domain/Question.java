@@ -44,4 +44,10 @@ public class Question {
 		this.title = title;
 		this.contents = contents;
 	}
+
+	public boolean isSameUser(User loginUser) {
+		return this.writer.equals(loginUser);
+	}
+	
+	
 }
