@@ -14,25 +14,36 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Question {
 	@Id
 	@GeneratedValue
+	@JsonProperty
 	private Long id;
 	
 	//private String writer;
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_question_key"))
+	@JsonProperty
 	private User writer;
+	
+	@JsonProperty
 	private String title;
 	
 	@Lob
+	@JsonProperty
 	private String contents;
+	
+	@JsonProperty
+	private Integer countOfAnswer = 0;
+	
 	private LocalDateTime createTime;
 	
 	//Answer.java에서 정의 되어있는 Question 변수와 Mapping
 	@OneToMany(mappedBy = "question")
-	@OrderBy("id ASC")
+	@OrderBy("id DESC")
 	private List<Answer> answers;
 	
 	public Question(){};
@@ -58,6 +69,14 @@ public class Question {
 
 	public boolean isSameUser(User loginUser) {
 		return this.writer.equals(loginUser);
+	}
+
+	public void addAnswer() {
+		// TODO Auto-generated method stub
+		this.countOfAnswer += 1;
+	}
+	public void deleteAnswer(){
+		this.countOfAnswer -=1;
 	}
 	
 	
